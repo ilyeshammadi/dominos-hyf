@@ -1,11 +1,20 @@
 const _ = require("lodash");
-const { showBoard } = require("./utils.js");
 
-function randomShuffle(domBox) {
-  return Math.floor(Math.random() * Math.floor(domBox.length));
-}
+const showBoard = (playerA, playerB, domBox, gameTable) => {
+  console.log("Player A:");
+  console.log(playerA);
+  console.log("Player B:");
+  console.log(playerB);
+  console.log("DomBox:");
+  console.log(domBox);
+  console.log("Table:");
+  console.log(gameTable);
+};
 
-function distributeTiles(domBox, playerA, playerB) {
+const randomShuffle = (domBox) =>
+  Math.floor(Math.random() * Math.floor(domBox.length));
+
+const distributeTiles = (domBox, playerA, playerB) => {
   // Distribute tiles to players
   for (let i = 0; i < 7; i++) {
     // Assign one tile to player A
@@ -13,7 +22,7 @@ function distributeTiles(domBox, playerA, playerB) {
     // Assign one tile to player A
     playerB.push(domBox.splice(randomShuffle(domBox), 1)[0]);
   }
-}
+};
 
 const isGameOver = (player) => {
   if (player.length === 0) {
